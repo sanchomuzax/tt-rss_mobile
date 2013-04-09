@@ -336,7 +336,7 @@ img{
 	position: absolute;
 	top: 31px;
 	right: 0px;
-	width: 110px;
+	width: 160px; /* default: 110px */
 	border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
 	border: thin solid #A5C1F0;
@@ -420,7 +420,7 @@ if ( $pref_Feed == "-1" ){
 		<li><div class="menuImg" id="showFeedAll"></div><a onclick="menu('showFeedAll');">Minden h&iacute;r</a></li>
 		<li><div class="menuImg" id="showFeedShared"></div><a onclick="menu('showFeedShared');">Megosztott h&iacute;rek</a></li>
 		<li><div class="menuImg" id="showFeedFresh"></div><a onclick="menu('showFeedFresh');">Friss h&iacute;rek</a></li>
-		<li><div class="menuImg" id="showNewFirst"></div><a onclick="menu('showNewFirst_<?php echo $order_by; ?>');">&Uacute; h&iacute;rek előre</a></li>
+		<li><div class="menuImg" id="showNewFirst"></div><a onclick="menu('showNewFirst_<?php echo $order_by; ?>');">H&iacute;rek visszafel&eacute;</a></li>
 		<hr>
 		<li><div class="menuImg" id="updateFeed"></div><a onclick=" updateFeed('-4','<?php echo $sessionID;?>');">Friss&iacute;t&eacute;s</a></li>
 	</ul> 
@@ -496,7 +496,7 @@ foreach ($data['content'] as $item){
 if ( count($data['content']) == 0 ){
 	print "<br><div style='text-align:center;'>Nincs t&ouml;bb friss h&iacute;r</div>";
 }else{
-	print '<div class="footer"><br><a class="footerLink" href="index.php?cmd=markRead&ids=' . $ids . '"  onclick="showSpinner(1)">Tedd olvasottra</a></div>';
+	print '<div class="footer"><br><a class="footerLink" href="index.php?cmd=markRead&ids=' . $ids . '"  onclick="showSpinner(1)">Olvasottra tesz mindent</a></div>';
 }
 
 
