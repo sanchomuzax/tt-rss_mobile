@@ -182,7 +182,7 @@ function processReqChange() {
 			document.getElementById("articleBody_" + articleId_keeper).innerHTML = data.content[0].content;
 			articleOpen_keeper = articleId_keeper; 
 		} else {
-			alert("There was a problem retrieving data:\n" + req.statusText);
+			alert("Probl&eacute;ma akadt az adatok bet&ouml;lt&eacute;s&eacute;vel:\n" + req.statusText);
 		}
 	}
 }
@@ -392,37 +392,37 @@ if ( $order_by == "feed_dates" ){
 </style>
 </head>
 <body>
-<div id="spinner"><div id="spinnerTop">Betöltés...</div></div>
+<div id="spinner"><div id="spinnerTop">Bet&ouml;lt&eacute;s...</div></div>
 <div class="header">
 <!--<div onclick="alert('feeds');" id="feedsButton">Feeds</div> ToDo: feed selection screen.  I don't really have a need for it though... -->
 <div onclick="location.reload();" id="reloadButton"></div>
 <div id="pageTitle">
 <?php
 if ( $pref_Feed == "-1" ){
-	print "Csillagos hírek\n";
+	print "Csillagos h&iacute;rek\n";
 }elseif ( $pref_Feed == "-2" ){
-	print "Megosztott hírek\n";
+	print "Megosztott h&iacute;rek\n";
 }elseif ( $pref_Feed == "-3" ){
-	print "Friss hírek\n";
+	print "Friss h&iacute;rek\n";
 }elseif ( $pref_Feed == "-4" ){
-	print "Összes hír\n";
+	print "&Ouml;sszes h&iacute;r\n";
 }
 ?>
 </div>
 <div onclick="toggleMenu();" id="menuButton"></div>
 <div id="menu" style="display:none;">
 	<ul> 
-		<li><div class="menuImg" id="showArticleAll"></div><a onclick="menu('showArticleAll');">Mindet</a></li>
-		<li><div class="menuImg" id="showArticleUnread"></div><a onclick="menu('showArticleUnread');">Frisset</a></li>
-		<li><div class="menuImg" id="showTextType"></div><a onclick="menu('showTextType_<?php echo $pref_textType; ?>');">Teljeset</a></li>
+		<li><div class="menuImg" id="showArticleAll"></div><a onclick="menu('showArticleAll');">Mutasd mindet</a></li>
+		<li><div class="menuImg" id="showArticleUnread"></div><a onclick="menu('showArticleUnread');">Csak a frisset</a></li>
+		<li><div class="menuImg" id="showTextType"></div><a onclick="menu('showTextType_<?php echo $pref_textType; ?>');">Teljes sz&ouml;veget</a></li>
 		<hr>
-		<li><div class="menuImg" id="showFeedStarred"></div><a onclick="menu('showFeedStarred');">Csillagos</a></li>
-		<li><div class="menuImg" id="showFeedAll"></div><a onclick="menu('showFeedAll');">Minden</a></li>
-		<li><div class="menuImg" id="showFeedShared"></div><a onclick="menu('showFeedShared');">Megosztott</a></li>
-		<li><div class="menuImg" id="showFeedFresh"></div><a onclick="menu('showFeedFresh');">Frissek</a></li>
-		<li><div class="menuImg" id="showNewFirst"></div><a onclick="menu('showNewFirst_<?php echo $order_by; ?>');">Új&nbsp;előre</a></li>
+		<li><div class="menuImg" id="showFeedStarred"></div><a onclick="menu('showFeedStarred');">Csillagos h&iacute;rek</a></li>
+		<li><div class="menuImg" id="showFeedAll"></div><a onclick="menu('showFeedAll');">Minden h&iacute;r</a></li>
+		<li><div class="menuImg" id="showFeedShared"></div><a onclick="menu('showFeedShared');">Megosztott h&iacute;rek</a></li>
+		<li><div class="menuImg" id="showFeedFresh"></div><a onclick="menu('showFeedFresh');">Friss h&iacute;rek</a></li>
+		<li><div class="menuImg" id="showNewFirst"></div><a onclick="menu('showNewFirst_<?php echo $order_by; ?>');">&Uacute; h&iacute;rek előre</a></li>
 		<hr>
-		<li><div class="menuImg" id="updateFeed"></div><a onclick=" updateFeed('-4','<?php echo $sessionID;?>');">Frissítés</a></li>
+		<li><div class="menuImg" id="updateFeed"></div><a onclick=" updateFeed('-4','<?php echo $sessionID;?>');">Friss&iacute;t&eacute;s</a></li>
 	</ul> 
 </div>
 </div>
@@ -434,13 +434,13 @@ if ( $login == 1 ){
  	?>
 <form id='login' action='index.php' method='post' accept-charset='UTF-8'>
 	<fieldset>
-		<legend>Login</legend>
+		<legend>Bel&eacute;p&eacute;s</legend>
 		<input type='hidden' name='submitted' id='submitted' value='1'/>
-		<label for='username' >Felhasználó:</label>
+		<label for='username' >Felhaszn&aacute;l&oacute;n&eacute;v:</label>
 		<input type='text' name='username' id='username'  maxlength="50" /><br>
-		<label for='password' >Jelszó:</label>
+		<label for='password' >Jelsz&oacute;:</label>
 		<input type='password' name='password' id='password' maxlength="50" /><br>
-		<input type='submit' name='Submit' value='Submit' />
+		<input type='submit' name='Submit' value='Bel&eacute;p&eacute;s' />
 	</fieldset>
 </form>
 </body>
@@ -494,7 +494,7 @@ foreach ($data['content'] as $item){
 }
 
 if ( count($data['content']) == 0 ){
-	print "<br><div style='text-align:center;'>Nincs friss hír</div>";
+	print "<br><div style='text-align:center;'>Nincs t&ouml;bb friss h&iacute;r</div>";
 }else{
 	print '<div class="footer"><br><a class="footerLink" href="index.php?cmd=markRead&ids=' . $ids . '"  onclick="showSpinner(1)">Tedd olvasottra</a></div>';
 }
