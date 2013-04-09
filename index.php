@@ -392,37 +392,37 @@ if ( $order_by == "feed_dates" ){
 </style>
 </head>
 <body>
-<div id="spinner"><div id="spinnerTop">Working...</div></div>
+<div id="spinner"><div id="spinnerTop">Betöltés...</div></div>
 <div class="header">
 <!--<div onclick="alert('feeds');" id="feedsButton">Feeds</div> ToDo: feed selection screen.  I don't really have a need for it though... -->
 <div onclick="location.reload();" id="reloadButton"></div>
 <div id="pageTitle">
 <?php
 if ( $pref_Feed == "-1" ){
-	print "Starred Articles\n";
+	print "Csillagos hírek\n";
 }elseif ( $pref_Feed == "-2" ){
-	print "Shared Feed\n";
+	print "Megosztott hírek\n";
 }elseif ( $pref_Feed == "-3" ){
-	print "Fresh Feed\n";
+	print "Friss hírek\n";
 }elseif ( $pref_Feed == "-4" ){
-	print "All Items\n";
+	print "Összes hír\n";
 }
 ?>
 </div>
 <div onclick="toggleMenu();" id="menuButton"></div>
 <div id="menu" style="display:none;">
 	<ul> 
-		<li><div class="menuImg" id="showArticleAll"></div><a onclick="menu('showArticleAll');">Show&nbsp;All</a></li>
-		<li><div class="menuImg" id="showArticleUnread"></div><a onclick="menu('showArticleUnread');">Show&nbsp;New</a></li>
-		<li><div class="menuImg" id="showTextType"></div><a onclick="menu('showTextType_<?php echo $pref_textType; ?>');">Full&nbsp;Text</a></li>
+		<li><div class="menuImg" id="showArticleAll"></div><a onclick="menu('showArticleAll');">Mindet</a></li>
+		<li><div class="menuImg" id="showArticleUnread"></div><a onclick="menu('showArticleUnread');">Frisset</a></li>
+		<li><div class="menuImg" id="showTextType"></div><a onclick="menu('showTextType_<?php echo $pref_textType; ?>');">Teljeset</a></li>
 		<hr>
-		<li><div class="menuImg" id="showFeedStarred"></div><a onclick="menu('showFeedStarred');">Starred&nbsp;&nbsp;</a></li>
-		<li><div class="menuImg" id="showFeedAll"></div><a onclick="menu('showFeedAll');">All Items</a></li>
-		<li><div class="menuImg" id="showFeedShared"></div><a onclick="menu('showFeedShared');">Shared&nbsp;&nbsp;</a></li>
-		<li><div class="menuImg" id="showFeedFresh"></div><a onclick="menu('showFeedFresh');">Fresh&nbsp;&nbsp;&nbsp;</a></li>
-		<li><div class="menuImg" id="showNewFirst"></div><a onclick="menu('showNewFirst_<?php echo $order_by; ?>');">New&nbsp;First</a></li>
+		<li><div class="menuImg" id="showFeedStarred"></div><a onclick="menu('showFeedStarred');">Csillagos</a></li>
+		<li><div class="menuImg" id="showFeedAll"></div><a onclick="menu('showFeedAll');">Minden</a></li>
+		<li><div class="menuImg" id="showFeedShared"></div><a onclick="menu('showFeedShared');">Megosztott</a></li>
+		<li><div class="menuImg" id="showFeedFresh"></div><a onclick="menu('showFeedFresh');">Frissek</a></li>
+		<li><div class="menuImg" id="showNewFirst"></div><a onclick="menu('showNewFirst_<?php echo $order_by; ?>');">Új&nbsp;előre</a></li>
 		<hr>
-		<li><div class="menuImg" id="updateFeed"></div><a onclick=" updateFeed('-4','<?php echo $sessionID;?>');">Update All</a></li>
+		<li><div class="menuImg" id="updateFeed"></div><a onclick=" updateFeed('-4','<?php echo $sessionID;?>');">Frissítés</a></li>
 	</ul> 
 </div>
 </div>
@@ -436,9 +436,9 @@ if ( $login == 1 ){
 	<fieldset>
 		<legend>Login</legend>
 		<input type='hidden' name='submitted' id='submitted' value='1'/>
-		<label for='username' >UserName:</label>
+		<label for='username' >Felhasználó:</label>
 		<input type='text' name='username' id='username'  maxlength="50" /><br>
-		<label for='password' >Password:</label>
+		<label for='password' >Jelszó:</label>
 		<input type='password' name='password' id='password' maxlength="50" /><br>
 		<input type='submit' name='Submit' value='Submit' />
 	</fieldset>
@@ -494,9 +494,9 @@ foreach ($data['content'] as $item){
 }
 
 if ( count($data['content']) == 0 ){
-	print "<br><div style='text-align:center;'>No Articles</div>";
+	print "<br><div style='text-align:center;'>Nincs friss hír</div>";
 }else{
-	print '<div class="footer"><br><a class="footerLink" href="index.php?cmd=markRead&ids=' . $ids . '"  onclick="showSpinner(1)">Mark these items as read</a></div>';
+	print '<div class="footer"><br><a class="footerLink" href="index.php?cmd=markRead&ids=' . $ids . '"  onclick="showSpinner(1)">Tedd olvasottra</a></div>';
 }
 
 
